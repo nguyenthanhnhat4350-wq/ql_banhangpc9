@@ -1,0 +1,147 @@
+.product-page-layout {
+    display: flex;
+    max-width: 1300px;
+    margin: 40px auto;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.sidebar-category {
+    width: 250px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    margin-top: 0; 
+    /* Dòng bùa phép giúp menu trượt theo màn hình nè */
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar-category h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    color: #333;
+}
+
+.sidebar-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-category li {
+    margin-bottom: 10px;
+}
+
+.sidebar-category a {
+    text-decoration: none;
+    color: #444;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar-category a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Thêm màu khi chọn danh mục */
+.sidebar-category a.active-category {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .product-page-layout {
+        flex-direction: column;
+    }
+    .sidebar-category {
+        width: 100%;
+        margin-top: 20px;
+        position: static; 
+    }
+}
+
+.product-list-container {
+    padding: 0 20px 40px 20px;
+    background-color: transparent; 
+    min-height: 500px;
+    flex: 1; 
+}
+
+.product-list {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .product-list-container {
+        padding: 20px 15px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .product-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* CSS CHO THANH CHUYỂN TRANG (PAGINATION) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+    padding-bottom: 10px;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    border: 1px solid #dee2e6;
+    background-color: #fff;
+    color: #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #e9ecef;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination button:disabled {
+    color: #6c757d;
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}

@@ -1,102 +1,110 @@
-import { useState } from "react";
-import "./Signup.css";
-function Signup() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    dob: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    address: "",
-    agreed: false
-  });
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import './Login.css';
 
-  // Hàm xử lý khi gõ phím, tự động cập nhật đúng ô đang gõ
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value
-    });
-  };
+const Signup = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Mật khẩu không khớp!");
+    setError('');
+
+    const trimmedUser = username.trim();
+    const trimmedPass = password.trim();
+    const trimmedConfirm = confirm.trim();
+
+    if (!trimmedUser || !trimmedPass) {
+      setError('Vui lòng nhập đủ tên đăng nhập và mật khẩu');
       return;
     }
-    console.log("Dữ liệu đăng ký:", formData);
-    alert("Đăng ký thành công!");
+
+    if (trimmedPass !== trimmedConfirm) {
+      setError('Mật khẩu xác nhận không khớp');
+      return;
+    }
+
+    if (trimmedPass.length < 3) {
+      setError('Mật khẩu tối thiểu 3 ký tự');
+      return;
+    }
+
+    try {
+      await axios.post('/api/register', {
+        user: trimmedUser,
+        pass: trimmedPass,
+      });
+      navigate('/login');
+    } catch (err) {
+      const msg =
+        err.response?.data?.error ||
+        (err.response?.status === 404
+          ? 'Chỉ hoạt động khi chạy npm run dev hoặc npm run preview (API ghi file trên server).'
+          : null) ||
+        'Đã xảy ra lỗi, vui lòng thử lại sau';
+      setError(msg);
+    }
   };
 
   return (
-    <div className="container">
-      <div className="signup-box">
+    <div className="login-page">
+      <div className="login-card">
+        <h2 className="login-title">Đăng ký</h2>
 
-
-        <h2 className="title">Đăng ký tài khoản</h2>
-
-        <form onSubmit={handleSignup} className="form-grid">
-          {/* Hàng 1: Cột 1 & Cột 2 */}
-          <div className="input-group">
-            <label>Họ và tên</label>
-            <input type="text" name="fullName" placeholder="VD: Nguyễn Văn A" onChange={handleChange} required />
-          </div>
-          <div className="input-group">
-            <label>Ngày sinh</label>
-            <input type="date" name="dob" onChange={handleChange} required />
-          </div>
-
-          {/* Hàng 2: Tràn viền */}
-          <div className="input-group full-width">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="example@gmail.com" onChange={handleChange} required />
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Tên đăng nhập"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              autoComplete="username"
+            />
           </div>
 
-          {/* Hàng 3: Cột 1 & Cột 2 */}
-          <div className="input-group">
-            <label>Mật khẩu</label>
-            <input type="password" name="password" placeholder="••••••••" onChange={handleChange} required />
-          </div>
-          <div className="input-group">
-            <label>Xác nhận mật khẩu</label>
-            <input type="password" name="confirmPassword" placeholder="••••••••" onChange={handleChange} required />
-          </div>
-
-          {/* Hàng 5: Tràn viền */}
-          <div className="input-group full-width">
-            <label>Địa chỉ</label>
-            <input type="text" name="address" placeholder="Nhập địa chỉ giao hàng..." onChange={handleChange} required />
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-input"
+              placeholder="Mật khẩu"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="new-password"
+            />
           </div>
 
-          {/* Hàng 6: Checkbox điều khoản */}
-          <div className="full-width terms-box">
-            <input type="checkbox" name="agreed" id="terms" onChange={handleChange} required />
-            <label htmlFor="terms">
-              Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a>.
-            </label>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-input"
+              placeholder="Xác nhận mật khẩu"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
+              autoComplete="new-password"
+            />
           </div>
 
-          {/* Nút Đăng ký */}
-          <button type="submit" className="btn-submit full-width">
+          {error && <div className="login-error">{error}</div>}
+
+          <button type="submit" className="login-button">
             Đăng ký
           </button>
         </form>
 
-        {/* Cụm Đăng nhập Google & Link Đăng nhập */}
-        <div className="footer-actions">
-          <button type="button" className="btn-google">
-            <span style={{ fontWeight: "bold", fontSize: "18px" }}>G</span> Đăng ký bằng Google
-          </button>
-          
-          <div className="login-link">
-            Đã có tài khoản? <a href="">Đăng nhập</a>
-          </div>
+        <div className="login-footer login-footer--spaced">
+          <span>Đã có tài khoản?</span>
+          <Link to="/login" className="signup-link">
+            Đăng nhập
+          </Link>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Signup;

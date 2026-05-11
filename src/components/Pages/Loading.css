@@ -1,14 +1,14 @@
-/* Phủ kín toàn màn hình, canh giữa mọi thứ */
+
 .loading-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f7f6; /* Cùng màu nền với trang Login cho đồng bộ */
+  background-color: #f4f7f6; 
 }
 
-/* Vòng tròn loading */
+
 .spinner {
   width: 50px;
   height: 50px;
