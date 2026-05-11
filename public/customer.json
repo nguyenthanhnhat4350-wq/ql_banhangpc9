@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Nguyễn Văn Alpha", "address": "Quận 6, TP.HCM", "email": "alpha.gaming@gmail.com", "type": "VIP" },
+  { "id": 2, "name": "Công ty Máy tính X", "address": "Quận 1, TP.HCM", "email": "contact@computex.com", "type": "Business" },
+  { "id": 3, "name": "Lê Thị Gamma", "address": "Quận Bình Tân, TP.HCM", "email": "gamma99@gmail.com", "type": "Regular" },
+  { "id": 4, "name": "Trần Beta", "address": "Quận 10, TP.HCM", "email": "betapc@gmail.com", "type": "Regular" },
+  { "id": 5, "name": "Phòng Net Hi-End", "address": "Quận 5, TP.HCM", "email": "hiendnet@gmail.com", "type": "VIP" }
+]

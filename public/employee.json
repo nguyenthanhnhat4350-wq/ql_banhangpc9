@@ -1,0 +1,12 @@
+[
+  { "id": 1, "name": "Nguyễn Thành Nhật", "position": "Cửa hàng trưởng", "email": "nhat.manager@gmail.com", "phone": "0901234567" },
+  { "id": 2, "name": "Trần Văn A", "position": "Kỹ thuật viên (Lắp ráp)", "email": "vanta@gmail.com", "phone": "0901112223" },
+  { "id": 3, "name": "Lê Thị B", "position": "Nhân viên Bán hàng", "email": "thib@gmail.com", "phone": "0903334445" },
+  { "id": 4, "name": "Phạm Văn C", "position": "Nhân viên Bán hàng", "email": "vanc@gmail.com", "phone": "0905556667" },
+  { "id": 5, "name": "Hoàng Thị D", "position": "Kế toán", "email": "thid@gmail.com", "phone": "0907778889" },
+  { "id": 6, "name": "Đặng Văn E", "position": "Kỹ thuật viên (Bảo hành)", "email": "vane@gmail.com", "phone": "0909990001" },
+  { "id": 7, "name": "Bùi Thị F", "position": "Tư vấn viên Online", "email": "thif@gmail.com", "phone": "0901223344" },
+  { "id": 8, "name": "Lý Văn G", "position": "Quản lý kho", "email": "vang@gmail.com", "phone": "0905566778" },
+  { "id": 9, "name": "Trương Thị H", "position": "Nhân viên Marketing", "email": "thih@gmail.com", "phone": "0908899001" },
+  { "id": 10, "name": "Vũ Văn I", "position": "Giao hàng", "email": "vani@gmail.com", "phone": "0902233445" }
+]

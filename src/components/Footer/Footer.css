@@ -1,119 +1,62 @@
 .highlands-footer {
-    background-color: #2f1b12; /* Rich coffee tone */
-    color: #f7ede2;
+    background-color: #1a2332; /* Nền Footer sáng hơn xíu để hợp với Header */
+    color: #f1f5f9;
     padding: 40px 20px 60px 20px;
     position: relative;
     width: 100%;
     box-sizing: border-box;
     min-height: 300px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Green strip at the top */
+/* DẢI NEON TRÊN CÙNG */
 .footer-green-strip {
     width: 100%;
     height: 4px;
-    background-color: #28a745; /* Green color */
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6, #60a5fa); /* Led RGB nhạt và sáng hơn */
+    background-size: 200% auto;
     position: absolute;
     top: 0;
     left: 0;
+    box-shadow: 0 0 10px rgba(167, 139, 250, 0.7);
+    animation: gradientShift 3s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
 
 .footer-content {
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2.5fr 1fr;
     gap: 40px;
     align-items: start;
 }
 
-/* Left Section: Logo and Copyright */
+/* LEFT SECTION */
 .footer-left {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.footer-logo {
-    margin-bottom: 20px;
-}
-
 .footer-logo-img {
-    width: 120px;
+    width: 140px;
     height: auto;
-    display: block;
-    object-fit: contain;
-    border-radius: 8px;
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.footer-logo-circle {
-    width: 110px;
-    height: 110px;
-    background-color: white;
-    border-radius: 50%;
-    border: 2px solid #922b27;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.footer-logo-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.logo-top {
-    position: absolute;
-    top: 20px;
-    font-size: 9px;
-    font-weight: bold;
-    color: #922b27;
-    letter-spacing: 1.5px;
-}
-
-.logo-bottom {
-    position: absolute;
-    bottom: 20px;
-    font-size: 9px;
-    font-weight: bold;
-    color: #922b27;
-    letter-spacing: 1.5px;
-}
-
-.logo-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50%;
-    margin-top: 5px;
-}
-
-.logo-mountain {
-    width: 45px;
-    height: 25px;
-    background-color: #922b27;
-    position: relative;
-    clip-path: polygon(10% 100%, 30% 50%, 50% 70%, 70% 30%, 90% 100%);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
 }
 
 .footer-copyright {
-    font-size: 12px;
-    color: white;
-    margin: 0;
-    opacity: 0.9;
+    font-size: 13px;
+    color: #94a3b8; /* Chữ sáng lên */
+    margin-top: 10px;
 }
 
-/* Middle Section: Navigation Links */
+/* MIDDLE SECTION */
 .footer-middle {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -126,11 +69,14 @@
 }
 
 .footer-column-title {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    color: #f7ede2;
+    margin-bottom: 20px;
+    color: #f8fafc;
+    letter-spacing: 1px;
+    border-left: 3px solid #60a5fa; /* Line xanh dương nhạt */
+    padding-left: 10px;
 }
 
 .footer-links {
@@ -140,23 +86,23 @@
 }
 
 .footer-links li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .footer-links a {
-    color: #f7ede2;
+    color: #cbd5e1; /* Chữ link rõ hơn */
     text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-    opacity: 0.9;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .footer-links a:hover {
-    opacity: 1;
-    color: #ffd200; /* Yellow on hover */
+    color: #93c5fd;
+    transform: translateX(5px); 
 }
 
-/* Right Section: Social Media */
+/* RIGHT SECTION - SOCIAL & MAP */
 .footer-right {
     display: flex;
     flex-direction: column;
@@ -165,117 +111,108 @@
 
 .footer-social-icons {
     display: flex;
-    gap: 15px;
-    margin-top: 10px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .social-icon {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background-color: white;
+    border-radius: 8px; 
+    background-color: #334155; /* Nền icon sáng hơn */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #922b27;
+    color: #f1f5f9;
     text-decoration: none;
     font-size: 18px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
+    border: 1px solid #475569;
 }
 
 .social-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    background-color: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+    box-shadow: 0 5px 15px rgba(96, 165, 250, 0.5);
 }
 
-/* Map under social icons */
+/* BẢN ĐỒ */
 .footer-map {
     width: 100%;
-    max-width: 320px;
-    margin-top: 1.25rem;
 }
 
 .footer-map__iframe {
     display: block;
     width: 100%;
-    height: 200px;
-    border: 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    height: 150px;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    filter: invert(85%) hue-rotate(180deg) contrast(1.1); /* Giảm độ tối của map đi 1 xíu */
+    transition: filter 0.3s;
+}
+
+.footer-map__iframe:hover {
+    filter: invert(0%); 
 }
 
 .footer-map__link {
     display: inline-block;
-    margin-top: 0.5rem;
-    font-size: 12px;
-    color: #ffd200;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #fcd34d; /* Vàng sáng hơn */
     text-decoration: none;
-    opacity: 0.9;
+    transition: color 0.2s;
 }
 
 .footer-map__link:hover {
+    color: #fbbf24;
     text-decoration: underline;
-    opacity: 1;
 }
 
-/* Chat Icon */
+/* ICON CHAT GÓC PHẢI DƯỚI */
 .footer-chat-icon {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: white;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6); /* Sáng và trẻ trung hơn */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.6);
     z-index: 10;
-    transition: transform 0.2s;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .footer-chat-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(-10deg);
 }
 
 .footer-chat-icon i {
-    font-size: 22px;
-    color: #922b27;
-    position: relative;
+    font-size: 24px;
+    color: white;
 }
 
-.footer-chat-icon::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(146, 43, 39, 0.1) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-/* Responsive Design */
+/* RESPONSIVE FOOTER */
 @media (max-width: 1024px) {
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 40px;
     }
-
+    
     .footer-middle {
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
     .footer-middle {
         grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .footer-social-icons {
-        flex-wrap: wrap;
+        gap: 30px;
     }
 }

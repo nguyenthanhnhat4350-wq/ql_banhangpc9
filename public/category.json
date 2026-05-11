@@ -1,0 +1,42 @@
+[
+    {
+        "id":1,
+        "name": "CPU"
+    },
+    {
+        "id":2,
+        "name": "Ram"
+    },
+    {
+        "id":3,
+        "name": "PSU (Nguồn)"
+    },
+    {
+        "id":4,
+        "name": "SSD/HDD (Thiết bị lưu trữ)"
+    },
+    {
+        "id":5,
+        "name": "Mainboard (Bo mạch chủ)"
+    },
+    {
+        "id":6,
+        "name": "VGA (Card đồ họa)"
+    },
+    {
+        "id":7,
+        "name": " Vỏ Case PC"
+    },
+    {
+        "id":8,
+        "name": "Tản nhiệt (Cooling)"
+    },
+    {
+        "id":9,
+        "name": "Màn Hình"
+    },
+    {
+        "id":10,
+        "name": "Bàn phím/Chuột"
+    }
+]
